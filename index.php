@@ -2,27 +2,9 @@
 
 ini_set('default_socket_timeout', 3);
 
-
-//$wsdl = 'http://soap-server.mobly.dev:81/server.php?wsdl';
-$wsdl = 'http://soap-server.mobly.dev/server.php?wsdl';
-//$options =
-//	[
-//		'encoding' => 'UTF-8',
-//		'verifypeer' => false,
-//		'verifyhost' => false,
-//		'use' => SOAP_LITERAL,
-//		'soap_version' => SOAP_1_1,
-//		'trace' => true,
-//		'location' => ,
-//		'compression' => 0,
-//		'exceptions' => true,
-//		'connection_timeout' => 5,
-//		'uri' => '',
-//		'cache_wsdl' => WSDL_CACHE_NONE,
-//	];
-
+$wsdl = 'URL TO SERVER';
 $options = [
-	'location' => "http://soap-server.mobly.dev/server.php?wsdl",
+	'location' => "URL TO SERVER",
   	'encoding' =>"ISO-8859-1",
   	'verifypeer' =>false,
   	'verifyhost' =>false,
