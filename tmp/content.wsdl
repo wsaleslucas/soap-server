@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soap-server.mobly.dev" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="SoapServer.MethodsServer" targetNamespace="http://soap-server.mobly.dev">
+  <types>
+    <xsd:schema targetNamespace="http://soap-server.mobly.dev">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </xsd:schema>
+  </types>
+  <portType name="SoapServer.MethodsServerPort">
+    <operation name="create">
+      <input message="tns:createIn"/>
+      <output message="tns:createOut"/>
+    </operation>
+  </portType>
+  <binding name="SoapServer.MethodsServerBinding" type="tns:SoapServer.MethodsServerPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="create">
+      <soap:operation soapAction="http://soap-server.mobly.dev#create"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://soap-server.mobly.dev"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://soap-server.mobly.dev"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SoapServer.MethodsServerService">
+    <port name="SoapServer.MethodsServerPort" binding="tns:SoapServer.MethodsServerBinding">
+      <soap:address location="http://soap-server.mobly.dev"/>
+    </port>
+  </service>
+  <message name="createIn">
+    <part name="xml" type="xsd:anyType"/>
+  </message>
+  <message name="createOut">
+    <part name="return" type="xsd:string"/>
+  </message>
+</definitions>
